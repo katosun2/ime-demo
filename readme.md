@@ -9,6 +9,9 @@ By Ryu
 	- 务必在标签上添加属性 readonly=""，避免手机原生输入法弹出
     - 如果使用vue, input 务必将id和v-model值统一，并保持在 $data 第一层
 
+###### DEMO:
+
+[http://katosun2.github.io/ime-demo/](http://katosun2.github.io/ime-demo/)
 
 ###### 用法：
 
