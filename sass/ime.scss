@@ -1,0 +1,163 @@
+@import 'common';
+@import 'base_mobile';
+
+.mod_form{
+	padding-bottom: 10px;
+
+	input{
+		outline: none;
+		border: 1px solid #DDDDDD;
+		display: block;
+		height: 24px;
+		font-size: 12px;
+		font-family:"\5B8B\4F53";
+	}
+
+	.put_out{
+		display:block;
+		margin-bottom: 6px;
+	}
+}
+
+.mod_ime{
+	position: fixed;
+	bottom:0;
+	left:0;
+	z-index:100;
+	width: 100%;
+
+	user-select: none;
+	background: #989898;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	padding: 0.2rem;
+	display:flex;
+	justify-content:space-between;
+	align-items: center;
+
+	.ime_m{
+		flex:1;
+
+		table{
+			width: 100%;
+			
+			td{
+				text-align:center;
+				width: 20%;
+				padding: 0.14rem;
+				box-sizing:border-box;-webkit-box-sizing:border-box;
+
+				span{
+					display:block;
+					height: 1.5rem;
+					padding-top: 0.2rem;
+					box-sizing:border-box;-webkit-box-sizing:border-box;
+
+					/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e2e2e2+0,dbdbdb+50,d1d1d1+51,fefefe+100;Grey+Gloss+%231 */
+					background: #e2e2e2; /* Old browsers */
+					background: -moz-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%); /* FF3.6-15 */
+					background: -webkit-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* Chrome10-25,Safari5.1-6 */
+					background: linear-gradient(to bottom, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
+
+					&.ime_pot{
+						font-family:"\5B8B\4F53";
+					}
+
+					&.ime_space{
+						padding-top: 0.45rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+.ime-focus{
+	border-bottom: 1px solid #2C79E5!important;
+}
+
+/*光标闪动补丁 { */
+input[type="text"]{
+	letter-spacing: 0px;
+}
+
+.put_out{
+	position:relative;
+	width: 100%;
+
+	input{
+		width: 100%;
+		margin:0;
+		padding: 0;
+	}
+
+	.cursor{
+		position:absolute;
+		z-index:10;
+		content: '';
+		top: 50%;
+		left: 1px;
+		height: 12px;
+		width: 1px;
+		margin-top:-6px;
+		display:none;
+		-webkit-animation: 1s blink infinite;
+		animation: 1s blink infinite;
+		-webkit-box-shadow: 0 0 0 rgba(0,100,0,50);
+		box-shadow: 0 0 0 rgba(0,100,0,50);
+		border: none;
+	}
+
+	&.put_out_focus .cursor{
+		display:block;
+	}
+}
+
+/*必须input的字体样式一致*/
+.tempWord {
+	font-size: 0.6rem;
+	letter-spacing: 0px;
+	border: 1px #ddd solid;
+	box-sizing: border-box;
+	font-family: inherit;
+
+	/*必须input的字体样式一致*/
+	font-size: 12px;
+	font-family:"\5B8B\4F53";
+}
+
+
+@keyframes blink {
+	50% {
+		color: #000000;
+		background: #000000;
+		-webkit-box-shadow: 0 0 1px rgba(0,0,0,0);
+		box-shadow: 0 0 1px rgba(0,0,0,0);
+	}
+}
+@-webkit-keyframes blink {
+	50% {
+		color: #000000;
+		background: #000000;
+		-webkit-box-shadow: 0 0 1px rgba(0,0,0,0);
+		box-shadow: 0 0 1px rgba(0,0,0,0);
+	}
+}
+@-ms-keyframes blink {
+	50% {
+		color: #000000;
+		background: #000000;
+		-webkit-box-shadow: 0 0 1px rgba(0,0,0,0);
+		box-shadow: 0 0 1px rgba(0,0,0,0);
+	}
+}
+@-moz-keyframes blink {
+	50% {
+		color: #000000;
+		background: #000000;
+		-webkit-box-shadow: 0 0 1px rgba(0,0,0,0);
+		box-shadow: 0 0 1px rgba(0,0,0,0);
+	}
+}
+/*} 光标闪动补丁*/

@@ -1,0 +1,51 @@
+/* 通过calc()精确控制字号大小 @mixin -> @inlude */
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+	& {
+		@each $property in $properties {
+			#{$property}: $min-value;
+		}
+
+		@media screen and (min-width: $min-vw) {
+			@each $property in $properties {
+				#{$property}: calc(#{$min-value} + #{strip-units($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-units($max-vw - $min-vw)}));
+			}
+		}
+
+		@media screen and (min-width: $max-vw) {
+			@each $property in $properties {
+				#{$property}: $max-value;
+			}
+		}
+	}
+}
+
+/* 文本溢出时使用省略号 占位实现(%placeholder) -> @extend */
+%text-ellipsis{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-break:break-all;
+}
+
+/* 居中 reference http://www.w3cplus.com/preprocessor/centering-with-sass.html */
+@mixin center($width: null, $height: null) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	@if not $width and not $height {
+		transform: translate(-50%, -50%);
+	} @else if $width and $height {
+		width: $width;
+		height: $height;
+		margin: -($width / 2) #{0 0} -($height / 2);
+	} @else if not $height {
+		width: $width;
+		margin-left: -($width / 2);
+		transform: translateY(-50%);
+	} @else {
+		height: $height;
+		margin-top: -($height / 2);
+		transform: translateX(-50%);
+	}
+}
